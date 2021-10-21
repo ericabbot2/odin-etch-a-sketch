@@ -2,10 +2,13 @@
 
 let gridContainer = document.querySelector('#grid-container')
 gridContainer.addEventListener('mousedown', toggleDrawing)
+gridContainer.addEventListener('touchstart', toggleDrawing)
 gridContainer.addEventListener('mouseup', toggleDrawing)
+gridContainer.addEventListener('touchend', toggleDrawing)
 
-function toggleDrawing() {
+function toggleDrawing(e) {
     drawing = !drawing
+    console.log(e)
 }
 
 // Step 1: create 16x16 grid of square divs
@@ -33,6 +36,8 @@ function drawGrid(){
         cell.addEventListener('mousedown', activateCell));
     cellArray.forEach(cell => 
         cell.addEventListener('mousemove', activateCell));
+    cellArray.forEach(cell => 
+        cell.addEventListener('touchmove', activateCell));
 }
 
 // Step 2: add hover effect on divs to change color
@@ -48,11 +53,14 @@ function activateCell(e) {
     if (e.type === 'mousedown') {
         cell.classList.add('active')
     }
+    if (e.type === 'touchmove') {
+        cell = document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+    }
     if (drawing === true) {
         cell.classList.add('active')
     }
 
-    //console.log(e)
+    console.log(e)
 }
 
 // Step 3: add button (top of screen) to clear
