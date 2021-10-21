@@ -1,5 +1,7 @@
 // script.js
 
+document.documentElement.style.overflow = 'hidden';
+
 let gridContainer = document.querySelector('#grid-container')
 gridContainer.addEventListener('mousedown', toggleDrawing)
 gridContainer.addEventListener('touchstart', toggleDrawing)
@@ -7,7 +9,6 @@ gridContainer.addEventListener('mouseup', toggleDrawing)
 gridContainer.addEventListener('touchend', toggleDrawing)
 
 function toggleDrawing(e) {
-    document.documentElement.style.overflow = 'hidden';
     drawing = !drawing
     //console.log(e)
 }
