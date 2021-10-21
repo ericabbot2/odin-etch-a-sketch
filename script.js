@@ -17,10 +17,10 @@ let cellArray = []
 let drawing = false;
 
 function drawGrid(){
-    for (i=0; i <= totalRows; i++) {
+    for (i=0; i < totalRows; i++) {
         let gridRow = document.createElement('div');
         gridRow.classList.add('grid-row');
-        for (j=0; j<= rowSize; j++) {
+        for (j=0; j < rowSize; j++) {
             let gridCell = document.createElement('div');
             gridCell.classList.add('grid-cell')
             gridRow.appendChild(gridCell)
@@ -52,7 +52,7 @@ function activateCell(e) {
         cell.classList.add('active')
     }
 
-    console.log(e)
+    //console.log(e)
 }
 
 // Step 3: add button (top of screen) to clear
@@ -64,24 +64,36 @@ function activateCell(e) {
     // NOTE: use button and prompt
 // Step 4: Optional changing color task/fading to black
 
+let sizeBtn = document.querySelector('#size-button')
+sizeBtn.addEventListener('click', setGrid);
+
 let resetBtn = document.querySelector('#reset-button')
 resetBtn.addEventListener('click', resetGrid);
+
+function setGrid() {
+    for (i=0; i < cellArray.length; i++) {
+        // cellArray[i].classList.remove('active')
+        cellArray[i].parentNode.remove()
+    };
+
+    let rowSizeInput = prompt("Input new grid size (less than 100)")
+    rowSizeInput = parseInt(rowSizeInput);
+    if (rowSizeInput > 100) {
+        rowSizeInput = 100;
+    }
+    if (!rowSizeInput){
+        rowSizeInput = 2;
+    }
+    rowSize = rowSizeInput;
+    totalRows = rowSize;
+    drawGrid()
+
+};
 
 function resetGrid() {
     for (i=0; i < cellArray.length; i++) {
         cellArray[i].classList.remove('active')
-        // cellArray[i].remove()
     };
-
-    // let rowSizeInput = prompt("Input new grid size (less than 100)")
-    // rowSizeInput = parseInt(rowSizeInput);
-    // if (rowSizeInput > 100) {
-    //     rowSizeInput = 100;
-    // }
-    // rowSize = rowSizeInput;
-    // totalRows = rowSize;
-    // drawGrid()
-
 };
 
 drawGrid()
