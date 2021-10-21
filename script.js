@@ -7,8 +7,9 @@ gridContainer.addEventListener('mouseup', toggleDrawing)
 gridContainer.addEventListener('touchend', toggleDrawing)
 
 function toggleDrawing(e) {
+    document.documentElement.style.overflow = 'hidden';
     drawing = !drawing
-    console.log(e)
+    //console.log(e)
 }
 
 // Step 1: create 16x16 grid of square divs
@@ -60,7 +61,7 @@ function activateCell(e) {
         cell.classList.add('active')
     }
 
-    console.log(e)
+    //console.log(e)
 }
 
 // Step 3: add button (top of screen) to clear
