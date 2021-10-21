@@ -1,0 +1,41 @@
+/* style.css */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+#grid-container {
+    width: 960px;
+    height: 960px;
+    background-color: transparent;
+    border: solid 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-row {
+    display:flex;
+    flex: 1;
+}
+
+.grid-cell {
+    background-color: lightblue;
+    flex: 1;
+}
+
+.grid-cell.active {
+    background-color: lightcoral;
+}
+
+#reset-button {
+    padding: 16px 24px;
+    margin: 16px
+}
