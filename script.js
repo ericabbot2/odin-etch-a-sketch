@@ -1,6 +1,16 @@
 // script.js
 
-document.documentElement.style.overflow = 'hidden';
+//document.documentElement.style.overflow = 'hidden';
+document.querySelector('#fullscreen-button').addEventListener('click', function () {
+    let elem = document.documentElement;
+    if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => {
+          alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+})
 
 let gridContainer = document.querySelector('#grid-container')
 gridContainer.addEventListener('mousedown', toggleDrawing)

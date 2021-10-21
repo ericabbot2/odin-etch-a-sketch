@@ -39,3 +39,7 @@ button {
     padding: 16px 24px;
     margin: 16px
 }
+
+.button-group {
+    display: flex;
+}
