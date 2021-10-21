@@ -1,1 +1,1 @@
-# odin-etcha-a-sketch
+# odin-etch-a-sketch
